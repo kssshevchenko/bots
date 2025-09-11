@@ -1,7 +1,19 @@
-import logging
+import logging, os
 import random
 from telegram import Update
 from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTypes, CommandHandler
+
+def load_dotenv(path = ".env"):
+    if os.path.exists(path):
+        with open(path) as f:
+            for line in f:
+                if line.strip() and not line.startswith("#"):
+                    key, value = line.strip().split("=", 1)
+                    os.environ[key] = value
+
+
+load_dotenv()
+
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -26,7 +38,8 @@ async def reply(update, context):
     await update.message.reply_text(response)
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token('7608067984:AAGbim7PP6tumyJe2PtsktiH5TmYav7igy4').build()
+    TOKEN = os.environ.get("TELEGRAM_TOKEN")
+    application = ApplicationBuilder().token(TOKEN).build()
 
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
