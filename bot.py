@@ -26,7 +26,7 @@ async def reply(update, context):
     await update.message.reply_text(response)
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token('7608067984:AAGf7bwsifedaDlNJjJM8XTyCMmiFFLaLvU').build()
+    application = ApplicationBuilder().token('7608067984:AAGbim7PP6tumyJe2PtsktiH5TmYav7igy4').build()
 
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
