@@ -13,7 +13,7 @@ Mac:
 ### 2.Clone the repository:
         https://github.com/kssshevchenko/magic_ball_bot.git
 ### 3. Install libraries:
-        pip install python-telegram-bot --upgrade
+        pip install -r requirements.txt
 ### 4. Get TOKEN from _**BotFather**_
         @BotFather
 ### 5. Create file ".env"
